@@ -1,3 +1,5 @@
+"use strict"
+
 function fetchJoke() {
   // API URL
   const apiUrl = 'https://v2.jokeapi.dev/joke/Any?safe-mode';
