@@ -13,14 +13,14 @@ function fetchJoke() {
       return response.json();
     })
     .then(data => {
+      const jokeContent = document.getElementById('joke-content');
       // Check if the response contains a joke
       if (data.type === 'single') {
-        console.log('Joke:', data.joke);
+        jokeContent.innerHTML = `<p>${data.joke}</p>`;
       } else if (data.type === 'twopart') {
-        console.log('Setup:', data.setup);
-        console.log('Delivery:', data.delivery);
+        jokeContent.innerHTML = `<strong>${data.setup}</strong><br>${data.delivery}`;
       } else {
-        console.log('Unexpected response format');
+        jokeContent.innerHTML = '<p>Unexpected response format</p>';
       }
     })
     .catch(error => {
